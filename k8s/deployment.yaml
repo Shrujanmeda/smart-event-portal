@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: smarteventportal
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: smarteventportal
+
+  template:
+    metadata:
+      labels:
+        app: smarteventportal
+
+    spec:
+      containers:
+        - name: smarteventportal
+          image: smarteventportal:v1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
